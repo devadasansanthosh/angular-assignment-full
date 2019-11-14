@@ -1,0 +1,77 @@
+version: '3'
+services:
+userService:
+    image: santhoshdevadasan/userservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mysql
+    ports:
+      - 7071:7071
+    healthcheck:
+      test: "exit 0"
+      
+favoriteService:
+    image: santhoshdevadasan/favouriteService:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mongo
+      - rabbitmq
+    ports:
+      - 7072:7072
+    healthcheck:
+      test: "exit 0"
+      
+playerrecommendationservice:
+    image: santhoshdevadasan/playerrecommendationservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mysql
+      - rabbitmq
+    ports:
+      - 7074:7074
+    healthcheck:
+      test: "exit 0"
+      
+eurekaServer:
+    image: santhoshdevadasan/eurekaservice:v1
+    restart: always
+    network_mode: host
+    ports:
+      - 9003:9003      
+    healthcheck:
+      test: "exit 0"
+      
+cplayersui:
+    image: santhoshdevadasan/cplayersui:v1
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 8080:8080 
+    healthcheck:
+      test: "exit 0"
+
+mysql:
+    image: mysql:8.0
+    network_mode: host
+    container_name: mysql_container
+    ports:
+      - 3306:3306    
+    environment:
+      MYSQL_DATABASENAME: cplayersdb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: admin
+      MYSQL_PASSWORD: admin123
+      
+mongo:
+    image: mongo:4.0
+    network_mode: host
+    container_name: mongo
+    ports:
+      - 27017:27017
+      

@@ -1,0 +1,11 @@
+.mat-form-field {
+    padding-left: 75vw;
+    padding-top: 4vh;
+    color: black;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

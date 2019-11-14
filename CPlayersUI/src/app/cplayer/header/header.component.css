@@ -1,0 +1,9 @@
+.mat-toolbar {
+    display: flex;
+    height: 12vh;
+    padding-top :1.5vh;
+}
+.image{
+    height: 11vh;
+    margin-right: auto;
+}

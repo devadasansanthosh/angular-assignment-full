@@ -1,0 +1,10 @@
+<mat-form-field class="field" appearance="outline">
+    <mat-label class="label">Find Player</mat-label>
+    <input (keyup)="onKey($event)" matInput class="input">
+</mat-form-field>
+
+<div class="container">
+    <app-playerlist *ngFor='let cplayer of cplayers' [cplayer]=cplayer (addToFavoriteList)=addToFavoriteList($event)>
+  
+    </app-playerlist>
+  </div>

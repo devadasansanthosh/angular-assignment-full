@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+<mat-toolbar-row>
+        CPlayer
+        <img class="image" src="assets\img\cplayer.jpg">
+        <button class="mat-button-player" mat-button [routerLink]="['/findplayer']">Find player</button>
+        <button mat-button class="mat-button-favourite" mat-button [routerLink]="['/favorite']">View Favorites</button>
+        <button mat-button class="mat-button-recommended" mat-button [routerLink]="['/recommended']">View Recommended Players</button>
+        <button class="mat-button-logout" mat-button (click)="logout()">Logout</button>
+</mat-toolbar-row>
+</mat-toolbar>
+

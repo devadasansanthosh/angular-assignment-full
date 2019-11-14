@@ -1,0 +1,10 @@
+<div class="container">
+    <mat-card *ngFor='let player of players' class="example-card">
+      <mat-card-header class="header">
+        <mat-card-title>{{player.fullName}}</mat-card-title>
+        <mat-card-subtitle>{{player.name}}</mat-card-subtitle>
+        <mat-card-subtitle>{{player.pid}}</mat-card-subtitle>
+        <mat-card-subtitle>Recommendation : {{player.totalcount}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>>
